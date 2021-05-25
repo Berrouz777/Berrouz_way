@@ -1,0 +1,172 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header__content {
+    // display: none;
+    height: 860px;
+    background-color: lightblue;
+    background-image: url("../images/header-background.jpg");
+    background-image: url("../images/header-background.webp");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 860px;
+    // padding-left: 700px;
+    // outline: 1px solid red;
+
+    @media (min-resolution: 2dppx) {
+        background-image: url("../images/header-background@2x.jpg");
+        background-image: url("../images/header-background@2x.webp");
+    }
+
+    @media (max-width: $tablet-max-width) {
+        height: 344px;
+        background-image: url("../images/header-background-tablet.jpg");
+        background-image: url("../images/header-background-tablet.webp");
+        background-size: 100% 344px;
+
+        @media (min-resolution: 2dppx) {
+            background-image: url("../images/header-background-tablet@2x.jpg");
+            background-image: url("../images/header-background-tablet@2x.webp");
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        height: 100%;
+        background: linear-gradient(0deg,lightblue 235px, $white 235px);
+        background-image: url("../images/header-background-mobile.jpg");
+        background-image: url("../images/header-background-mobile.webp");
+        background-repeat: no-repeat;
+        background-size: 100% 235px;
+
+        @media (min-resolution: 2dppx) {
+            background-image: url("../images/header-background-mobile@2x.jpg");
+            background-image: url("../images/header-background-mobile@2x.webp");
+        }
+    }
+}
+
+.header__wrapper {
+    max-width: 1170px;
+    margin: 0 auto;
+    // outline: 1px solid orange;
+}
+
+.header__container {
+    max-width: 470px;
+    margin: 185px 0 0 auto;
+    // padding-left: 700px;
+    // outline: 1px solid red;
+
+    @media (max-width: $tablet-max-width) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 605px;
+        margin: 50px auto 0 auto;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        padding: 0 16px;
+        max-width: 360px;
+    }
+}
+
+.header__title {
+    font-size: 55px;
+    line-height: 80px;
+    font-weight: 600;
+    letter-spacing: -1.11px;
+    color: $white;
+    margin: 0;
+    padding-right: 30px;
+    cursor: default;
+
+    @media (max-width: $tablet-max-width) {
+        font-size: 30px;
+        line-height: 150%;
+        letter-spacing: 0;
+        text-align: center;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        font-size: 24px;
+        letter-spacing: 0;
+        margin-left: 35px;
+        margin-top: 30px;
+    }
+}
+
+.header__text {
+    font-size: 16px;
+    line-height: 170%;
+    letter-spacing: -0.47px;
+    color: $white;
+    margin-top: 28px;
+    padding-right: 80px;
+    cursor: default;
+
+    @media (max-width: $tablet-max-width) {
+        text-align: center;
+        padding: 0 90px;
+        margin-top: 15px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        color: $black;
+        padding: 87px 0 0 0;
+    }
+}
+
+.header__button {
+    display: inline-block;
+    position: relative;
+    margin-top: 18px;
+    padding: 25px 0 25px 40px;
+    width: 300px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: $white;
+    background-color: $orange;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        right: 40px;
+        width: 16px;
+        height: 16px;
+        background-image: url("../images/arrow.svg");
+    }
+
+    &:hover {
+        background-color: $yellow-orange;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        margin: -7px auto 0 auto;
+        padding: 15px 0 23px 40px;
+        width: 210px;
+        height: 12px;
+        font-size: 10px;
+        font-weight: 500;
+
+        &:after {
+            top: 16px;
+
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin: 5px 0 0 0;
+        width: 248px;
+    }
+}

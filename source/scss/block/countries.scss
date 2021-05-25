@@ -1,0 +1,205 @@
+.countries {
+    // outline: 1ps solid red;
+    // background-color: orange;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    max-width: 1170px;
+    margin: 0 auto;
+
+    @media (max-width: $tablet-max-width) {
+        max-width: 605px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        padding: 0 16px;
+    }
+}
+
+.countries__title {
+    position: relative;
+    font-size: 55px;
+    line-height: 80px;
+    letter-spacing: -1.25px;
+    font-weight: 600;
+    width: 360px;
+    color: $lightblack;
+    margin: 197px 0 0 0;
+    // outline: 1px solid red;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 190px;
+        left: 0;
+        width: 228.5px;
+        height: 4px;
+        background-color: $orange;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        font-size: 30px;
+        line-height: 150%;
+        letter-spacing: 0;
+        width: 100%;
+        margin-top: 80px;
+        text-align: center;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        font-size: 24px;
+        margin-top: 108px;
+    }
+}
+
+.countries__text {
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: -0.47px;
+    color: transparentize($color: $lightblack, $amount: 0.3);
+    // outline: 1px solid red;
+    // padding: 0;
+    margin: 65px 0 0 0;
+
+    @media (max-width: $tablet-max-width) {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
+.countries__list {
+    @include list-style;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    justify-content: space-between;
+    // outline: 1px solid orange;
+
+    @media (max-width: $tablet-max-width) {
+        margin: 20px 0 0 0;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin: 0;
+    }
+}
+
+.countries__item {
+    margin: 50px 0;
+    height: 430px;
+    // flex-grow: 1;
+    // outline: 1px solid orange;
+
+    &:nth-of-type(4) {
+        margin-left: auto;
+        margin-right: 59px;
+    }
+
+    &:nth-of-type(5) {
+        margin-right: auto;
+        margin-left: 59px;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        height: 425px;
+        flex-basis: 288px;
+        margin: 20px 0 0 0;
+
+        &:nth-of-type(4) {
+            margin-right: 0;
+        }
+
+        &:nth-of-type(5) {
+            margin-top: 30px;
+            margin-left: auto;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        flex-basis: 100%;
+        margin: 20px auto 14px auto;
+
+        &:nth-of-type(5) {
+            margin-top: 22px;
+        }
+    }
+}
+
+.countries__link {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    height: 100%;
+    flex-basis: 288px;
+    flex-shrink: 1;
+    text-decoration: none;
+    margin-top: 7px;
+    // outline: 1px solid orange;
+
+    &::before {
+        z-index: 1;
+        display: none;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -7px;
+        left: 0;
+        background-color: transparentize($color: $black, $amount: 0.6);
+    }
+
+    &::after {
+        z-index: 2;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        content: "Смотреть подробнее";
+        position: absolute;
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-weight: 500;
+        width: 264px;
+        height: 75px;
+        top: 170px;
+        border: 1px solid $white;
+        color: $white;
+        text-transform: uppercase;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+
+        &::after,
+        &::before {
+            display: flex;
+        }
+    }
+
+    @media (max-width: $tablet-max-width) {
+        img {
+            height: 425px;
+            width: 288px;
+        }
+    }
+}
+
+.countries__caption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -19px;
+    font-size: 24px;
+    letter-spacing: -0.41px;
+    font-weight: 500;
+    width: 215px;
+    height: 61px;
+    color: $lightblack;
+    background-color: $white;
+}

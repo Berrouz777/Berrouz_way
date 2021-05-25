@@ -1,0 +1,321 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    max-width: 1170px;
+    margin: 170px auto 0 auto;
+
+    @media (max-width: $tablet-max-width) {
+        flex-wrap: wrap;
+        max-width: 768px;
+        margin-top: 80px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin-top: 70px;
+    }
+}
+
+.footer__travel {
+    position: relative;
+    width: 390px;
+    padding-left: 13px;
+    // outline: 1px solid red;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 189px;
+        background-color: $middlegrey;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        width: 50%;
+        padding: 0;
+        // outline: 1px solid red;
+
+        &::after {
+            height: 177px;
+            right: -32px;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        width: 100%; 
+
+        &::after {
+            height: 1px;
+            width: 90%;
+            right: 20px;
+            top: auto;
+            bottom: -13px;
+        }
+     }
+}
+
+.footer__title {
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 600;
+    color: $black;
+    margin: 0;
+    cursor: default;
+
+    @media (max-width: $tablet-max-width) {
+        margin-left: 20px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin-left: -10px;
+        text-align: center;
+    }
+}
+
+.footer__travel-list {
+    @include list-style;
+    display: flex;
+    // justify-content: space-between;
+    margin-top: 17px;
+    // outline: 1px solid red;
+
+    @media (max-width: $tablet-max-width) {
+        margin-left: 20px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        // padding: 0 16px;
+    }
+}
+
+.footer__travel-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 49px;
+    // outline: 1px solid red;
+
+    &:nth-of-type(2) {
+        margin-right: 55px;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    span {
+        font-size: 14px;
+        color: transparentize($color: $black, $amount: 0.5);
+        margin-bottom: 3px;
+        cursor: default;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        margin-right: 45px;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin-right: 0;
+        margin-top: 18px;
+        width: 144px;
+        align-items: center;
+
+        &:first-of-type {
+            margin-left: -20px;
+        }
+
+        &:nth-of-type(2) {
+            margin-right: 0;
+
+            span {
+                margin-left: 20px;
+            }
+        }
+
+        &:last-of-type {
+            margin-top: 10px;
+            margin-right: 0;
+
+            span {
+                margin-left: -10px;
+            }
+        }
+     }
+}
+
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    padding-left: 13px;
+    // outline: 1px solid red;
+
+    .footer__title {
+        margin-left: -10px;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        width: 50%;
+        padding: 0;
+        // outline: 1px solid red;
+
+        .footer__title {
+            margin-left: 80px;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+       width: 100%; 
+       margin-top: 43px;
+
+       .footer__title {
+            margin-left: -10px;
+            text-align: center;
+        }
+    }
+}
+
+.footer__contacts-email {
+    position: relative;
+    font-size: 14px;
+    color: $orange;
+    margin-top: 15px;
+    padding: 5px 5px 5px 30px;
+    // outline: 1px solid red;
+
+    &-icon {
+        position: absolute;
+        top: 5px;
+        left: -8px;
+        fill: $middlegrey;
+    }
+
+    &:hover {
+        .footer__contacts-email-icon {
+            fill: $orange;
+        }
+    }
+
+    @media (max-width: $tablet-max-width) {
+        margin-left: 72px;
+        padding-left: 50px;
+
+        &-icon {
+            left: 10px;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin: 18px auto 0 auto;
+    }
+}
+
+.footer__contacts-tel {
+    position: relative;
+    font-size: 16px;
+    line-height: 32px;
+    color: $orange;
+    margin-top: 8px;
+    padding-left: 30px;
+
+    &-icon {
+        position: absolute;
+        top: -3px;
+        left: -8px;
+        stroke: $middlegrey;
+    }
+
+    &:hover {
+        .footer__contacts-tel-icon {
+            stroke: $orange;
+        }
+    }
+
+    @media (max-width: $tablet-max-width) {
+        margin-left: 72px;
+        padding-left: 50px;
+
+        &-icon {
+            left: 10px;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin: 5px auto 0 auto;
+    }
+}
+
+.footer__corporation {
+    position: relative;
+    max-width: 320px;
+    padding-right: 10px;
+    // outline: 1px solid red;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: -50px;
+        top: 0;
+        width: 1px;
+        height: 189px;
+        background-color: $middlegrey;
+    }
+
+    @media (max-width: $tablet-max-width) {
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
+        margin-top: 53px;
+        padding-bottom: 50px;
+        // outline: 1px solid red;
+
+        .footer__title {
+            text-align: center;
+            margin: 0;
+        }
+
+        &::after {
+            top: -30px;
+            left: 21px;
+            width: 726px;
+            height: 1px;
+        }
+    }
+
+    @media (max-width: $mobile-max-width) {
+        margin-top: 45px;
+        margin-right: 0;
+
+        &::after {
+            top: -30px;
+            left: 11px;
+            width: 90%;
+            height: 1px;
+            // margin: 0 auto;
+        }
+     }
+}
+
+.footer__corporation-text {
+    font-size: 14px;
+    line-height: 170%;
+    color: transparentize($color: $black, $amount: 0.5);
+    margin-top: 22px;
+    // margin-left: -15px;
+    cursor: default;
+
+    @media (max-width: $tablet-max-width) {
+        text-align: center;
+        padding: 0 20px;
+        // outline: 1px solid red;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        padding: 0 15px;
+        text-align: center;
+    }
+}

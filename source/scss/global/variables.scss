@@ -1,0 +1,20 @@
+$white: #ffffff;
+$lightgrey: #FBF8F8;
+$middlegrey: #D7D9DF;
+$black: #141517;
+$lightblack: #2C2E3F;
+$orange: #FE7865;
+$yellow-orange: #F17D4B;
+
+// $mobile-min-width: 320px;
+$mobile-max-width: 767px;
+// $tablet-min-width: 768px;
+$tablet-max-width: 1023px;
+// $desktop-width: 1024px;
+
+@mixin list-style {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $lightblack;
+  }
