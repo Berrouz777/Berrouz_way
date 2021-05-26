@@ -1,0 +1,50 @@
+.button {
+    width: 176px;
+    height: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background-color: $orange;
+    color: $white;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $yellow-orange;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        width: 100%;
+    }
+}
+
+.button__close {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: 10px;
+        height: 1px;
+        left: 0;
+        background-color: transparentize($color: $black, $amount: 0.8);
+    }
+
+    &:after {
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        transform: rotate(-45deg);
+    }
+}

@@ -1,0 +1,30 @@
+.message {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 728px;
+    height: 444px;
+    top: 100px;
+    left: 30px;
+    background-color: $lightgrey;
+
+    &--open {
+        display: flex;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        left: 0;
+        top: 50px;
+        width: 320px;
+        height: 568px;
+    }
+}
+
+.message__text {
+    font-size: 25px;
+    line-height: 170%;
+    font-weight: 600;
+    color: $darkgrey;
+    text-align: center;
+}

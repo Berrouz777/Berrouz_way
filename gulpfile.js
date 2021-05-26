@@ -8,6 +8,8 @@ const rename = require('gulp-rename');
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const htmlmin = require('gulp-htmlmin');
+// const babel = require('gulp-babel');
+const uglify = require("gulp-uglify-es").default;
 const autoprefixer = require('autoprefixer');
 const del = require('del');
 const sync = require('browser-sync').create();
@@ -31,28 +33,38 @@ exports.styles = styles;
 
 const html = () => {
   return gulp.src('source/*.html')
-  .pipe(htmlmin({collapseWhitespace: true}))
-  .pipe(gulp.dest('dist'))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest('dist'))
 }
 
 exports.html = html;
 
+const scripts = () => {
+  return gulp.src("source/js/script.js")
+    .pipe(uglify())
+    .pipe(rename("script.min.js"))
+    .pipe(gulp.dest("dist/js"))
+    .pipe(sync.stream());
+}
+
+exports.scripts = scripts;
+
 const images = () => {
   return gulp.src('source/images/**/*.{png,jpg,svg}')
-  .pipe(imagemin([
-    imagemin.mozjpeg({progressive: true}),
-    imagemin.optipng({optimizationLevel: 3}),
-    imagemin.svgo()
-  ]))
-  .pipe(gulp.dest('dist/images'))
+    .pipe(imagemin([
+      imagemin.mozjpeg({ progressive: true }),
+      imagemin.optipng({ optimizationLevel: 3 }),
+      imagemin.svgo()
+    ]))
+    .pipe(gulp.dest('dist/images'))
 }
 
 exports.images = images;
 
 const createWebp = () => {
   return gulp.src('source/images/**/*.{png,jpg}')
-  .pipe(webp({quality: 80}))
-  .pipe(gulp.dest('dist/images'))
+    .pipe(webp({ quality: 80 }))
+    .pipe(gulp.dest('dist/images'))
 }
 
 exports.createWebp = createWebp;
@@ -62,10 +74,10 @@ const copy = () => {
     'source/fonts/*.{woff2,woff}',
     'source/images/**/*.{jpg,png,svg}'
   ],
-  {
-    base: 'source'
-  })
-  .pipe(gulp.dest('dist'));
+    {
+      base: 'source'
+    })
+    .pipe(gulp.dest('dist'));
 }
 
 exports.copy = copy;
@@ -95,6 +107,7 @@ const dist = gulp.series(
   gulp.parallel(
     styles,
     html,
+    scripts,
     copy,
     images,
     createWebp
@@ -110,6 +123,7 @@ const reload = done => {
 
 const watcher = () => {
   gulp.watch("source/scss/**/*.scss", gulp.series("styles"));
+  gulp.watch("source/js/script.js", gulp.series(scripts));
   gulp.watch("source/*.html", gulp.series(html, reload));
 }
 
@@ -118,6 +132,7 @@ exports.default = gulp.series(
   gulp.parallel(
     styles,
     html,
+    scripts,
     copy,
     createWebp
   ),

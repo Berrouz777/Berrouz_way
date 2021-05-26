@@ -1,0 +1,83 @@
+.tour-form {
+    position: fixed;
+    display: none;
+    justify-content: flex-end;
+    width: 728px;
+    height: 444px;
+    top: 100px;
+    left: 30px;
+    margin: 0 auto;
+    background-color: $lightgrey;
+    background-image: url("../images/module.jpg");
+    background-image: url("../images/module.webp");
+    background-position: 0 0;
+    background-size: 338px 444px;
+    background-repeat: no-repeat;
+    // outline: 1px solid red;
+
+    &--open {
+        display: flex;
+    }
+
+    @media (max-width: $mobile-max-width) {
+        left: 0;
+        top: 50px;
+        width: 320px;
+        height: 568px;
+        background-image: none;
+    }
+}
+
+.tour-form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 390px;
+    height: 100%;
+    // outline: 1px solid red;
+}
+
+.tour-form__heading {
+    font-size: 25px;
+    line-height: 170%;
+    font-weight: 600;
+    color: $darkgrey;
+    margin-top: 72px;
+}
+
+.tour-form__input {
+    width: 242px;
+    height: 45px;
+    margin: 0 auto;
+    border-color: transparentize($color: $lightblack, $amount: 0.7);
+
+    &-tel {
+        margin-top: 25px;
+        padding-left: 25px;
+    }
+
+    &-email {
+        width: 252px;
+        margin-top: 20px;
+        padding-left: 15px;
+    }
+
+    &:hover {
+        border-color: transparentize($color: $lightblack, $amount: 0.5);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: transparentize($color: $lightblack, $amount: 0);
+    }
+
+    &::placeholder {
+        font-family: "Montserrat", "Arial", sans-serif;
+        font-size: 14px;
+        color: $black;
+    }
+}
+
+.tour-form__button {
+    margin-top: 20px;
+}
